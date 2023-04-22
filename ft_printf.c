@@ -6,7 +6,7 @@
 /*   By: mpoussie <mpoussie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/20 14:04:16 by mpoussie          #+#    #+#             */
-/*   Updated: 2023/04/21 17:39:46 by mpoussie         ###   ########.fr       */
+/*   Updated: 2023/04/22 16:11:28 by mpoussie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,16 +22,13 @@ int	ft_format(va_list args, const char format)
 	else if (format == 's')
 		print_size += ft_printstr(va_arg(args, char *));
 	else if (format == 'p')
-		return (0);
-	// print_size += ft_print_ptr(va_arg(args, unsigned long long));
+		print_size += ft_print_ptr(va_arg(args, unsigned long long));
 	else if (format == 'd' || format == 'i')
 		print_size += ft_printnbr(va_arg(args, int));
 	else if (format == 'u')
-		return (0);
-	// print_size += ft_print_unsigned(va_arg(args, unsigned int));
+		print_size += ft_print_unsigned(va_arg(args, unsigned int));
 	else if (format == 'x' || format == 'X')
-		// print_size += ft_print_hex(va_arg(args, unsigned int), format);
-		return (0);
+		print_size += ft_print_hex(va_arg(args, unsigned int), format);
 	else if (format == '%')
 		print_size += ft_printpercent();
 	return (print_size);
