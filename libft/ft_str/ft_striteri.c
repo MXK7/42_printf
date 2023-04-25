@@ -1,27 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_striteri.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mpoussie <mpoussie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/04/21 05:56:10 by mpoussie          #+#    #+#             */
-/*   Updated: 2023/04/22 14:34:06 by mpoussie         ###   ########.fr       */
+/*   Created: 2023/04/19 06:32:03 by mpoussie          #+#    #+#             */
+/*   Updated: 2023/04/24 06:51:43 by mpoussie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libftprintf.h"
-#include <stdio.h>
+#include "../../include/libft.h"
 
-// ft_printf()
-
-int	main(void)
+void	ft_striteri(char *s, void (*f)(unsigned int, char *))
 {
-	char a [] = "Salut bande de nouille    56416314654135";
-	
-	printf("----------------------\n");
-	ft_printf("%s", a);
-	printf("\n----------------------\n");
-	printf("%s", a);
-	printf("\n----------------------");
+	size_t	i;
+
+	if (!s || !(*s) || !f)
+		return ;
+	i = 0;
+	while (s[i] != '\0')
+	{
+		f(i, &s[i]);
+		i++;
+	}
 }

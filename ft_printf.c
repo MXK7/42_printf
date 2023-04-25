@@ -6,11 +6,11 @@
 /*   By: mpoussie <mpoussie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/20 14:04:16 by mpoussie          #+#    #+#             */
-/*   Updated: 2023/04/22 16:11:28 by mpoussie         ###   ########.fr       */
+/*   Updated: 2023/04/25 07:21:09 by mpoussie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libftprintf.h"
+#include "ft_printf.h"
 
 int	ft_format(va_list args, const char format)
 {
@@ -18,19 +18,19 @@ int	ft_format(va_list args, const char format)
 
 	print_size = 0;
 	if (format == 'c')
-		print_size += ft_printchar(va_arg(args, int));
+		print_size += ft_print_char(va_arg(args, int));
 	else if (format == 's')
-		print_size += ft_printstr(va_arg(args, char *));
+		print_size += ft_print_str(va_arg(args, char *));
 	else if (format == 'p')
 		print_size += ft_print_ptr(va_arg(args, unsigned long long));
 	else if (format == 'd' || format == 'i')
-		print_size += ft_printnbr(va_arg(args, int));
+		print_size += ft_print_nbr(va_arg(args, int));
 	else if (format == 'u')
 		print_size += ft_print_unsigned(va_arg(args, unsigned int));
 	else if (format == 'x' || format == 'X')
 		print_size += ft_print_hex(va_arg(args, unsigned int), format);
 	else if (format == '%')
-		print_size += ft_printpercent();
+		print_size += ft_print_percent();
 	return (print_size);
 }
 
